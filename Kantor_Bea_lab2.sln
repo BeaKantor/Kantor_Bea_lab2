@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kantor_Bea_lab2", "Kantor_Bea_lab2\Kantor_Bea_lab2.csproj", "{5539E54B-38DC-4149-BF92-0F273382BCB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5539E54B-38DC-4149-BF92-0F273382BCB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5539E54B-38DC-4149-BF92-0F273382BCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5539E54B-38DC-4149-BF92-0F273382BCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5539E54B-38DC-4149-BF92-0F273382BCB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F27A1476-1B49-4ED7-9F8B-67B141D0424B}
+	EndGlobalSection
+EndGlobal
