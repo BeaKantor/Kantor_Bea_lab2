@@ -16,5 +16,6 @@ namespace Kantor_Bea_lab2.Data
 
         public DbSet<Kantor_Bea_lab2.Models.Book> Book { get; set; } = default!;
         public DbSet<Kantor_Bea_lab2.Models.Publisher> Publisher { get; set; } = default!;
+        public DbSet<Kantor_Bea_lab2.Models.Author> Author { get; set; } = default!;
     }
 }

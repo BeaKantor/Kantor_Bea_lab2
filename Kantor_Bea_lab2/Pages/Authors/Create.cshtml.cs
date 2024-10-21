@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Kantor_Bea_lab2.Data;
 using Kantor_Bea_lab2.Models;
 
-namespace Kantor_Bea_lab2.Pages.Books
+namespace Kantor_Bea_lab2.Pages.Authors
 {
     public class CreateModel : PageModel
     {
@@ -21,19 +21,11 @@ namespace Kantor_Bea_lab2.Pages.Books
 
         public IActionResult OnGet()
         {
-            var authorList = _context.Author.Select(x => new
-            {
-                x.ID,
-                FullName = x.FirstName + " " + x.LastName
-            });
-            ViewData["AuthorID"] = new SelectList(authorList, "ID", "FullName");
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID",
-      "PublisherName");
             return Page();
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+        public Author Author { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -43,7 +35,7 @@ namespace Kantor_Bea_lab2.Pages.Books
                 return Page();
             }
 
-            _context.Book.Add(Book);
+            _context.Author.Add(Author);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
