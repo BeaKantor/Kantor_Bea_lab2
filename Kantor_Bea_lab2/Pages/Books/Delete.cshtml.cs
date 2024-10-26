@@ -29,7 +29,9 @@ namespace Kantor_Bea_lab2.Pages.Books
                 return NotFound();
             }
 
-            var book = await _context.Book.FirstOrDefaultAsync(m => m.Id == id);
+            var book = await _context.Book
+                .Include(b => b.Author)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (book == null)
             {
