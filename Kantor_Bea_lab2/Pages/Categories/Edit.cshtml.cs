@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Kantor_Bea_lab2.Data;
 using Kantor_Bea_lab2.Models;
 
-namespace Kantor_Bea_lab2.Pages.Books
+namespace Kantor_Bea_lab2.Pages.Categories
 {
-    public class EditModel : BookCategoriesPageModel
+    public class EditModel : PageModel
     {
         private readonly Kantor_Bea_lab2.Data.Kantor_Bea_lab2Context _context;
 
@@ -21,7 +21,7 @@ namespace Kantor_Bea_lab2.Pages.Books
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+        public Category Category { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,30 +29,13 @@ namespace Kantor_Bea_lab2.Pages.Books
             {
                 return NotFound();
             }
-            //author
 
-            var book =  await _context.Book
-                .Include(b => b.Publisher)
-                .Include(b => b.BookCategories).ThenInclude(b => b.Category)
-                .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (book == null)
+            var category =  await _context.Category.FirstOrDefaultAsync(m => m.ID == id);
+            if (category == null)
             {
                 return NotFound();
             }
-            Book = book;
-
-            PopulateAssignedCategoryData(_context, Book);
-
-            var authorList = _context.Author.Select(x => new
-            {
-                x.ID,
-                FullName = x.FirstName + " " + x.LastName
-            });
-            ViewData["AuthorID"] = new SelectList(authorList, "ID", "FullName");
-
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID",
-"PublisherName");
+            Category = category;
             return Page();
         }
 
@@ -65,7 +48,7 @@ namespace Kantor_Bea_lab2.Pages.Books
                 return Page();
             }
 
-            _context.Attach(Book).State = EntityState.Modified;
+            _context.Attach(Category).State = EntityState.Modified;
 
             try
             {
@@ -73,7 +56,7 @@ namespace Kantor_Bea_lab2.Pages.Books
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BookExists(Book.Id))
+                if (!CategoryExists(Category.ID))
                 {
                     return NotFound();
                 }
@@ -86,9 +69,9 @@ namespace Kantor_Bea_lab2.Pages.Books
             return RedirectToPage("./Index");
         }
 
-        private bool BookExists(int id)
+        private bool CategoryExists(int id)
         {
-            return _context.Book.Any(e => e.Id == id);
+            return _context.Category.Any(e => e.ID == id);
         }
     }
 }
