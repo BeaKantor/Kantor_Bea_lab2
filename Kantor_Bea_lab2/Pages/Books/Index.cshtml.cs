@@ -30,6 +30,7 @@ namespace Kantor_Bea_lab2.Pages.Books
             //author
 
             BookD.Books = await _context.Book
+                .Include(b => b.Author)
  .Include(b => b.Publisher)
  .Include(b => b.BookCategories)
  .ThenInclude(b => b.Category)
@@ -48,13 +49,6 @@ namespace Kantor_Bea_lab2.Pages.Books
         }
 
 
-            public async Task OnGetAsync()
-        {
-            Book = await _context.Book
-                .Include(b => b.Author)
-            .Include(b => b.Publisher)
-            .ToListAsync();
-
-        }
+            
     }
 }
