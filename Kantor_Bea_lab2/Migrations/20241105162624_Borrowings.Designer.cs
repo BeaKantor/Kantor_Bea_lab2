@@ -4,6 +4,7 @@ using Kantor_Bea_lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kantor_Bea_lab2.Migrations
 {
     [DbContext(typeof(Kantor_Bea_lab2Context))]
-    partial class Kantor_Bea_lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20241105162624_Borrowings")]
+    partial class Borrowings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
