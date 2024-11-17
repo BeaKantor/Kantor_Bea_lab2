@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Kantor_Bea_lab2.Data;
 using Kantor_Bea_lab2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Kantor_Bea_lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
+
     public class DeleteModel : PageModel
     {
         private readonly Kantor_Bea_lab2.Data.Kantor_Bea_lab2Context _context;
